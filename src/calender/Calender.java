@@ -26,12 +26,21 @@ public class Calender {
 		// 객체 생성
 		Calender cal = new Calender();
 		
-		System.out.println("반복횟수를 입력하세요.");
-		int repeat = scanner.nextInt();
+		String PROMPT = "cal>";
 
-		for (int i = 0; i < repeat; i++) {
+		
+		int month=1;
+
+		while(true) {
 			System.out.print("달을 입력: ");
-			int month = scanner.nextInt();
+			System.out.print(PROMPT);
+			month = scanner.nextInt();
+			if( month == -1) {
+				break;
+			}
+			if( month > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d 일 까지 있습니다.\n", month, cal.getMaxDaysOfMonth(month));
 			// cal.printSampleCalender();
 		}
